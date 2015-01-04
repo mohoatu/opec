@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menu>
+
+	<item>
+		<id>01</id>
+		<parentid></parentid>
+		<name>Nhập khẩu</name>
+		<func></func>
+		<subMenuWidth>200px</subMenuWidth>
+	</item>
+	
+		<item>
+			<id>0101</id>
+			<parentid>01</parentid>
+			<name>Hợp đồng</name>
+			<func></func>
+		</item>
+	
+			<item>
+				<id>010101</id>
+				<parentid>0101</parentid>
+				<name>Hợp đồng</name>
+				<func>xnk_nk_hop_dong</func>
+			</item>
+			
+			<item>
+				<id>010102</id>
+				<parentid>0101</parentid>
+				<name>Code nhập khẩu</name>
+				<func>xnk_nk_code_hop_dong</func>
+			</item>
+
+		<item>
+			<id>0102</id>
+			<parentid>01</parentid>
+			<name>Ngân hàng</name>
+			<func></func>
+			<subMenuWidth>200px</subMenuWidth>
+		</item>
+			
+			<item>
+				<id>010201</id>
+				<parentid>0102</parentid>
+				<name>Phiếu mở LC</name>
+				<func>xnk_nk_ngan_hang_lc</func>
+			</item>
+			
+			<item>
+				<id>010202</id>
+				<parentid>0102</parentid>
+				<name>Ký hậu</name>
+				<func>xnk_nk_ngan_hang_ky_hau</func>
+			</item>
+			
+			<item>
+				<id>010203</id>
+				<parentid>0102</parentid>
+				<name>Thông tin thanh toán</name>
+				<func>xnk_nk_ngan_hang_thanh_toan</func>
+			</item>
+	
+		<item>
+			<id>0103</id>
+			<parentid>01</parentid>
+			<name>Vận tải biển</name>
+			<func>xnk_nk_van_tai</func>
+		</item>
+		
+		<item>
+			<id>0104</id>
+			<parentid>01</parentid>
+			<name>Thông quan</name>
+			<func>xnk_nk_thong_quan</func>
+		</item>
+		
+		<item>
+			<id>0105</id>
+			<parentid>01</parentid>
+			<name>Nộp thuế</name>
+			<func>xnk_nk_thue</func>
+		</item>
+		
+		<item>
+			<id>0106</id>
+			<parentid>01</parentid>
+			<name>Giao nhận</name>
+			<func>xnk_nk_giao_nhan</func>
+		</item>
+		
+		<item>
+			<id>0107</id>
+			<parentid>01</parentid>
+			<name>Logistic</name>
+			<func></func>
+		</item>
+		
+			<item>
+				<id>010701</id>
+				<parentid>0107</parentid>
+				<name>Phí thu hộ</name>
+				<func>xnk_nk_logistic_phi_thu_ho</func>
+			</item>
+			
+			<item>
+				<id>010702</id>
+				<parentid>0107</parentid>
+				<name>Phí dịch vụ</name>
+				<func>xnk_nk_logistic_phi_dich_vu</func>
+			</item>
+			
+			<item>
+				<id>010703</id>
+				<parentid>0107</parentid>
+				<name>Phí vận chuyển</name>
+				<func>xnk_nk_logistic_phi_van_chuyen</func>
+			</item>
+		
+		<item>
+			<id>0108</id>
+			<parentid>01</parentid>
+			<name>Xác nhận hoàn thành</name>
+			<func></func>
+		</item>
+	
+		<item>
+			<id>0109</id>
+			<parentid>01</parentid>
+			<name>Báo cáo</name>
+			<func></func>
+		</item>
+	
+	<!--  -->
+	<item>
+		<id>02</id>
+		<parentid></parentid>
+		<name>Xuất khẩu</name>
+		<func></func>
+	</item>
+	
+	<!-- Danh muc Level 0 -->
+	<item>
+		<id>03</id>
+		<parentid></parentid>
+		<name>Danh mục</name>
+		<func></func>
+		<subMenuWidth>200px</subMenuWidth>
+	</item>
+		
+		<!-- Nhập khẩu -->
+		<item>
+			<id>0301</id>
+			<parentid>03</parentid>
+			<name>Nhập khẩu</name>
+			<func></func>
+			<subMenuWidth>200px</subMenuWidth>
+		</item>
+		
+			<item>
+				<id>030101</id>
+				<parentid>0301</parentid>
+				<name>Nhà cung cấp</name>
+				<func>dm_ncc</func>
+			</item>
+			
+			<item>
+				<id>030102</id>
+				<parentid>0301</parentid>
+				<name>Nhà sản xuất</name>
+				<func>dm_nsx</func>
+			</item>
+			
+			<item>
+				<id>030103</id>
+				<parentid>0301</parentid>
+				<name>Khách hàng nội địa</name>
+				<func>dm_khach_hang_noi_dia</func>
+			</item>
+			
+			<item>
+				<id>030104</id>
+				<parentid>0301</parentid>
+				<name>Hãng vận tải</name>
+				<func>dm_don_vi_van_tai</func>
+			</item>
+			
+			<item>
+				<id>030105</id>
+				<parentid>0301</parentid>
+				<name>Loại hàng hóa nhập khẩu</name>
+				<func>dm_phan_loai_hang_hoa</func>
+			</item>
+			
+			<item>
+				<id>030106</id>
+				<parentid>0301</parentid>
+				<name>Hàng hóa nhập khẩu</name>
+				<func>dm_hang_hoa</func>
+			</item>
+		
+		<!-- Xuất khẩu -->
+		<item>
+			<id>0302</id>
+			<parentid>03</parentid>
+			<name>Xuất khẩu</name>
+			<func></func>
+			<subMenuWidth>200px</subMenuWidth>
+		</item>
+			
+			<item>
+				<id>030201</id>
+				<parentid>0302</parentid>
+				<name>Hợp đồng xuất khẩu</name>
+				<func></func>
+			</item>
+			
+			<item>
+				<id>030202</id>
+				<parentid>0302</parentid>
+				<name>Code xuất khẩu</name>
+				<func></func>
+			</item>
+			
+			<item>
+				<id>030203</id>
+				<parentid>0302</parentid>
+				<name>Khách hàng thương mại</name>
+				<func></func>
+			</item>
+			
+			<item>
+				<id>030204</id>
+				<parentid>0302</parentid>
+				<name>Người sử dụng cuối cùng</name>
+				<func></func>
+			</item>
+			
+			<item>
+				<id>030205</id>
+				<parentid>0302</parentid>
+				<name>Người môi giới</name>
+				<func></func>
+			</item>
+		
+		<!-- Logistic -->
+		<item>
+			<id>0303</id>
+			<parentid>03</parentid>
+			<name>Logistic</name>
+			<func></func>
+			<subMenuWidth>200px</subMenuWidth>
+		</item>
+		
+			<item>
+				<id>030301</id>
+				<parentid>0303</parentid>
+				<name>Cảng biển</name>
+				<func>dm_cang_bien</func>
+			</item>
+			
+			<item>
+				<id>030302</id>
+				<parentid>0303</parentid>
+				<name>Đơn vị vận tải</name>
+				<func>dm_don_vi_van_tai</func>
+			</item>
+			
+			<item>
+				<id>030303</id>
+				<parentid>0303</parentid>
+				<name>Chi cục hải quan</name>
+				<func>dm_chi_cuc_hai_quan</func>
+			</item>
+			
+			<item>
+				<id>030304</id>
+				<parentid>0303</parentid>
+				<name>Tổng kho</name>
+				<func>dm_kho_hang</func>
+			</item>
+			
+			<item>
+				<id>030305</id>
+				<parentid>0303</parentid>
+				<name>Quốc gia</name>
+				<func>dm_quoc_gia</func>
+			</item>
+			
+			<item>
+				<id>030306</id>
+				<parentid>0303</parentid>
+				<name>Tỉnh thành</name>
+				<func>dm_tinh</func>
+			</item>
+			
+			<item>
+				<id>030307</id>
+				<parentid>0303</parentid>
+				<name>Hãng tàu</name>
+				<func>dm_hang_tau_bien</func>
+			</item>
+			
+			<item>
+				<id>030308</id>
+				<parentid>0303</parentid>
+				<name>Loại container</name>
+				<func>dm_loai_container</func>
+			</item>
+			
+			<item>
+				<id>030309</id>
+				<parentid>0303</parentid>
+				<name>Khoản mục phí</name>
+				<func>dm_loai_chi_phi</func>
+			</item>
+			
+		<!-- Dùng chung -->
+		<item>
+			<id>0304</id>
+			<parentid>03</parentid>
+			<name>Dùng chung</name>
+			<func></func>
+			<subMenuWidth>200px</subMenuWidth>
+		</item>
+		
+			<item>
+				<id>030401</id>
+				<parentid>0304</parentid>
+				<name>Pháp nhân thuộc tập đoàn</name>
+				<func>dm_phap_nhan</func>
+			</item>
+			
+			<item>
+				<id>030402</id>
+				<parentid>0304</parentid>
+				<name>Phòng, ban, bộ phận</name>
+				<func>dm_phong_ban</func>
+			</item>
+			
+			<item>
+				<id>030403</id>
+				<parentid>0304</parentid>
+				<name>Chuyên viên phụ trách</name>
+				<func>dm_nhan_vien</func>
+			</item>
+			
+			<item>
+				<id>030404</id>
+				<parentid>0304</parentid>
+				<name>Ngân hàng</name>
+				<func>dm_ngan_hang</func>
+			</item>
+			
+			<item>
+				<id>030405</id>
+				<parentid>0304</parentid>
+				<name>Loại hình XNK</name>
+				<func>dm_loai_hinh_xnk</func>
+			</item>
+			
+			<item>
+				<id>030406</id>
+				<parentid>0304</parentid>
+				<name>Phương thức giá</name>
+				<func>dm_phuong_thuc_gia</func>
+			</item>
+			
+			<item>
+				<id>030407</id>
+				<parentid>0304</parentid>
+				<name>Phương thức thanh toán</name>
+				<func>dm_phuong_thuc_thanh_toan</func>
+			</item>
+			
+			<item>
+				<id>030408</id>
+				<parentid>0304</parentid>
+				<name>Thuế suất</name>
+				<func>dm_thue_suat</func>
+			</item>
+			
+			<item>
+				<id>030409</id>
+				<parentid>0304</parentid>
+				<name>Ứng dụng</name>
+				<func>dm_ung_dung</func>
+			</item>
+			
+			<item>
+				<id>030410</id>
+				<parentid>0304</parentid>
+				<name>Mức độ yêu cầu</name>
+				<func>dm_muc_do_yeu_cau</func>
+			</item>
+			
+			<item>
+				<id>030411</id>
+				<parentid>0304</parentid>
+				<name>Đơn vị tính</name>
+				<func>dm_don_vi_tinh</func>
+			</item>
+	
+	<!-- Hệ thống Level 0 -->
+	<item>
+		<id>04</id>
+		<parentid></parentid>
+		<name>Hệ thống</name>
+		<func></func>
+		<subMenuWidth>250px</subMenuWidth>
+	</item>		
+			<item>
+				<id>0401</id>
+				<parentid>04</parentid>
+				<name>Quản lý người sử dụng</name>
+				<func></func>
+			</item>
+			
+			<item>
+				<id>0402</id>
+				<parentid>04</parentid>
+				<name>Phân quyền người sử dụng</name>
+				<func></func>
+			</item>
+			
+	<item>
+		<id>05</id>
+		<parentid></parentid>
+		<name>Phát triển</name>
+		<func></func>
+		<subMenuWidth>250px</subMenuWidth>
+	</item>
+	
+		<item>
+			<id>0501</id>
+			<parentid>05</parentid>
+			<name>Khai báo thực đơn sử dụng</name>
+			<func>sys_menu</func>
+		</item>
+	
+</menu>
