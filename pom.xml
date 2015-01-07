@@ -22,13 +22,14 @@
   		<artifactId>junit</artifactId>
   		<version>4.8.1</version>
   		<type>jar</type>
-
+  		<scope>compile</scope>
   	</dependency>
   	<dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-web</artifactId>
     	<version>3.2.3.RELEASE</version>
     	<type>jar</type>
+    	<scope>compile</scope>
     </dependency>
     
     <dependency>
@@ -36,6 +37,7 @@
     	<artifactId>spring-core</artifactId>
     	<version>3.2.3.RELEASE</version>
     	<type>jar</type>
+    	<scope>compile</scope>
     	<exclusions>
     		<exclusion>
     			<artifactId>commons-logging</artifactId>
@@ -48,18 +50,21 @@
     	<artifactId>spring-webmvc</artifactId>
     	<version>3.2.3.RELEASE</version>
     	<type>jar</type>
+    	<scope>compile</scope>
     </dependency>
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-aop</artifactId>
     	<version>3.2.3.RELEASE</version>
     	<type>jar</type>
+    	<scope>compile</scope>
     </dependency>
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-orm</artifactId>
     	<version>3.2.3.RELEASE</version>
     	<type>jar</type>
+    	<scope>compile</scope>
     </dependency>
     
     <!-- Servlet -->
@@ -86,21 +91,21 @@
     	<artifactId>log4j</artifactId>
     	<version>1.2.14</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-tx</artifactId>
     	<version>3.2.3.RELEASE</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
 	<dependency>
 		<groupId>org.springframework.security</groupId>
 		<artifactId>spring-security-acl</artifactId>
 		<version>3.2.3.RELEASE</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
 	</dependency>
 	
 	<dependency>
@@ -108,7 +113,7 @@
 		<artifactId>spring-security-config</artifactId>
 		<version>3.2.3.RELEASE</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
 	</dependency>
 	
 	<dependency>
@@ -116,7 +121,7 @@
 		<artifactId>spring-security-core</artifactId>
 		<version>3.2.3.RELEASE</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
 	</dependency>
 	
 	<dependency>
@@ -124,7 +129,14 @@
 		<artifactId>spring-security-web</artifactId>
 		<version>3.2.3.RELEASE</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-taglibs</artifactId>
+		<version>3.2.3.RELEASE</version>
+		<scope>compile</scope>
 	</dependency>
 	
 	<dependency>
@@ -132,7 +144,7 @@
     	<artifactId>cglib-nodep</artifactId>
     	<version>2.2</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     
     <dependency>
@@ -140,7 +152,7 @@
     	<artifactId>standard</artifactId>
     	<version>1.1.2</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     
     <dependency>
@@ -148,14 +160,14 @@
     	<artifactId>commons-digester</artifactId>
     	<version>2.1</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     <dependency>
     	<groupId>commons-collections</groupId>
     	<artifactId>commons-collections</artifactId>
     	<version>3.2.1</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     
     <dependency>
@@ -163,7 +175,7 @@
     	<artifactId>ehcache-core</artifactId>
     	<version>2.3.1</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
    
     <dependency>
@@ -179,7 +191,7 @@
     	<artifactId>hibernate-annotations</artifactId>
     	<version>3.4.0.GA</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     
     <dependency>
@@ -187,7 +199,7 @@
     	<artifactId>hibernate-core</artifactId>
     	<version>3.3.2.GA</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     
     <dependency>
@@ -195,7 +207,7 @@
     	<artifactId>persistence-api</artifactId>
     	<version>1.0</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     
     <dependency>
@@ -203,7 +215,7 @@
     	<artifactId>c3p0</artifactId>
     	<version>0.9.1.2</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     
     <dependency>
@@ -211,7 +223,7 @@
     	<artifactId>slf4j-api</artifactId>
     	<version>1.6.1</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     
     <dependency>
@@ -219,7 +231,7 @@
     	<artifactId>slf4j-log4j12</artifactId>
     	<version>1.6.1</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     
     
@@ -228,7 +240,7 @@
     	<artifactId>javassist</artifactId>
     	<version>3.7.ga</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
     
         
@@ -245,7 +257,7 @@
     	<artifactId>jasperreports</artifactId>
     	<version>4.7.0</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     	<exclusions>
     		<exclusion>
     			<artifactId>commons-collections</artifactId>
@@ -276,7 +288,7 @@
     	<artifactId>poi</artifactId>
     	<version>3.6</version>
     	<type>jar</type>
-    	
+    	<scope>compile</scope>
     </dependency>
   </dependencies>
   <build>
@@ -292,7 +304,5 @@
       </plugin>
     </plugins>  
   </build>
-  
-
-  
+    
 </project>
