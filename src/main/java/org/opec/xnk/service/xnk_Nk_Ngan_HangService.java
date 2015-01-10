@@ -1,6 +1,7 @@
 package org.opec.xnk.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -8,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.opec.xnk.domain.dm_Ngan_Hang;
 import org.opec.xnk.domain.xnk_Nk_Ngan_Hang;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +35,28 @@ public class xnk_Nk_Ngan_HangService {
 		// Create a Hibernate query (HQL)
 		Query query = session.createQuery("FROM xnk_Nk_Ngan_Hang");
 		return  query.list();
+	}
+
+
+	public Integer insert(Map<String, Object> fields) {
+		logger.debug("Tao doi tuong");
+		Session session = sessionFactory.getCurrentSession();
+		xnk_Nk_Ngan_Hang obj = new xnk_Nk_Ngan_Hang();
+		obj.setGhi_chu(fields.get("ghi_chu").toString());		
+		session.save(obj);
+		return obj.getThanhtoan_id();
+	}
+
+
+	public void remove(int parseInt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void update(Map<String, Object> fields) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/*

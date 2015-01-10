@@ -61,7 +61,7 @@ function newItem() {
 //-------------------------------------------------------------------------------
 function deleteItem() {
 	
-	var rows_selected = $("#jqxDataTable").jqxDataTable('getSelection');
+	var rows_selected = $("#jqxDataTable1").jqxDataTable('getSelection');
 	if(rows_selected.length <= 0)
 		return;
 		
@@ -85,7 +85,7 @@ function deleteItem() {
 	    success: function(response) {
 
 	    	//alert('success');
-	    	$("#jqxDataTable").jqxDataTable('deleteRow', row_index);
+	    	$("#jqxDataTable1").jqxDataTable('deleteRow', row_index);
 	    },
 	    error:function(response, status, er) {
 	        
@@ -100,7 +100,7 @@ function deleteItem() {
 //-------------------------------------------------------------------------------
 function exportXls() {
 	
-	$("#jqxDataTable").jqxDataTable('exportData', 'xls');
+	$("#jqxDataTable1").jqxDataTable('exportData', 'xls');
 	
 }
 
@@ -319,6 +319,7 @@ function xnk_nk_ngan_hang_lc() {
 	      { text: 'Số lượng', datafield: 'so_luong_hang_thuc_te', width: 100 },
 	      { text: 'Đơn giá NT', datafield: 'don_gia_ngoai_te' },
 	      { text: 'Trị giá NT', datafield: 'tri_gia_ngoai_te' },
+	      { text: 'Ghi Chú', datafield: 'ghi_chu' },
 	      { text: 'CV phụ trách', datafield: 'nhanvien_ma' }
 		]
 	});
@@ -443,7 +444,67 @@ function initDanhmuc() {
 
 	$("#dialog").on('close', function () {
 	    // enable jqxDataTable.
-	    $("#jqxDataTable").jqxDataTable({ disabled: false });
+	    $("#jqxDataTable1").jqxDataTable({ disabled: false });
+	});
+	$("#cancel").mousedown(function () {
+	    // close jqxWindow.
+	    $("#dialog").jqxWindow('close');
+	});
+	
+	$("#save").mousedown(function () {
+		
+		$('#dialog').jqxValidator('validate');
+	    // close jqxWindow.
+	    $("#dialog").jqxWindow('close');
+	    
+	    // update edited row.
+	    var editRow = parseInt($("#dialog").attr('data-row'));
+	    
+	    if(editRow == -1) {
+	    	rowData = {"hopdong_id":0,
+	    			"so_hop_dong":""
+	    			};
+	    }   
+	    rowData.ghi_chu = $("#ghi_chu").val();
+	    var url = './xnk_nk_ngan_hang_lc/update';
+	    if(editRow == -1) {
+	    	url = './xnk_nk_ngan_hang_lc/insert';
+	    }	    
+	    $.ajax({
+		    url: url,
+		    type: 'POST',
+		    dataType: 'json',
+		    data: JSON.stringify(rowData), 
+		    contentType: 'application/json; charset=utf-8',
+		    mimeType: 'application/json',
+		    success: function(response) {
+				
+		    	if(editRow != -1) {
+			    	$("#jqxDataTable1").jqxDataTable('updateRow', editRow, rowData);
+			    } else {
+			    	rowData.hopdong_id = response;
+			    	$("#jqxDataTable1").jqxDataTable('addRow', response, rowData); // Tham so thu 2 la null thi ID++
+			    }
+		    	
+		    },
+		    error:function(response, status, er) {
+		        
+		    	alert("Lỗi: " + response + " trạng thái: " + status + " er:" + er);
+
+		    }
+		});
+	});
+	
+	
+	$('#dialog').jqxValidator({
+	    rules: [
+	           //{ input: '#nhasanxuat_ten', message: 'Trường này phải nhập!', action: 'keyup, blur', rule: 'required' }
+		]
+	});
+	
+	$("#dialog").on('close', function () {
+	    // enable jqxDataTable.
+	    $("#jqxDataTable1").jqxDataTable({ disabled: false });
 	});
 	
 	$("#dialog").jqxWindow({
