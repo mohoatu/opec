@@ -25,11 +25,11 @@
 			<section class="main">
 				<form class="form-login" action="j_spring_security_check" method="post">
 					<p class="field">
-						<input type="text" id="j_username" name="j_username" placeholder="<spring:message code="app.login.username"/>">
+						<input type="text" id="j_username" name="j_username" placeholder="<spring:message code="app.login.username"/>" value="ngoson">
 						<i class="icon-user icon-large"></i>
 					</p>
 						<p class="field">
-							<input type="password" id="j_password" name="j_password" placeholder="<spring:message code="app.login.password"/>">
+							<input type="password" id="j_password" name="j_password" placeholder="<spring:message code="app.login.password"/>" value="111111">
 							<i class="icon-lock icon-large"></i>
 					</p>
 					<p class="submit">
