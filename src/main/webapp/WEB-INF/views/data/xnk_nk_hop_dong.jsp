@@ -53,21 +53,21 @@
              </tr>
              
              <tr>
-             	 <td align="right"><spring:message code="hd.so_hop_dong"/></td>
+             	 <td align="right"><spring:message code="hd.so_hop_dong"/>*</td>
                  <td align="left">
                      <input id='so_hop_dong' type="text"/>
                  </td>
              </tr>
             
              <tr>
-                 <td align="right"><spring:message code="hd.nhacungcap_ten"/></td>
+                 <td align="right"><spring:message code="hd.nhacungcap_ten"/>*</td>
                  <td colspan="3" align="left">
                      <div style='float: left; margin-top: 2px;' id='nhacungcap_ten'/>
                  </td>
              </tr>
                  
              <tr>
-                 <td align="right"><spring:message code="hd.nhanvien_ten"/></td>
+                 <td align="right"><spring:message code="hd.nhanvien_ten"/>*</td>
                  <td colspan="3" align="left">
                      <div style='float: left; margin-top: 2px;' id='nhanvien_ten'/>
                  </td>
@@ -79,21 +79,21 @@
                      <div style='float: left; margin-top: 2px;' id='mucdoyc_ten'/>
                  </td>
                  
-                 <td align="right"><spring:message code="hd.tiente_ten"/></td>
+                 <td align="right"><spring:message code="hd.tiente_ten"/>*</td>
                  <td align="left">
                      <div style='float: left; margin-top: 2px;' id='tiente_ten'/>
                  </td>
              </tr>
              
              <tr>
-                 <td align="right"><spring:message code="hd.ngay_ky_hop_dong"/></td>
+                 <td align="right"><spring:message code="hd.ngay_ky_hop_dong"/>*</td>
                  <td align="left">
                      <div style='float: left; margin-top: 2px;' id='ngay_ky_hop_dong'/>
                  </td>
              </tr>
              
              <tr>
-             	 <td align="right"><spring:message code="hd.ngay_giao_hop_dong"/></td>
+             	 <td align="right"><spring:message code="hd.ngay_giao_hop_dong"/>*</td>
                  <td align="left">
                      <div style='float: left; margin-top: 2px;' id='ngay_giao_hop_dong'/>
                  </td>
