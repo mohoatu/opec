@@ -59,7 +59,7 @@ function deleteItem() {
 	
 	var rows_selected = $("#jqxDataTable").jqxDataTable('getSelection');
 	if(rows_selected.length <= 0){
-		alert("Hãy chọn 1 dòng để sửa!");
+		alert("Hãy chọn 1 dòng để xóa!");
 		return;
 	}
 
