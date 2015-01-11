@@ -41,16 +41,25 @@
 				    <button class="jqx-rc-all" style='width:80px; height:30px'id="cmdEdit" onclick="editItem()"><spring:message code="db.edit"/></button>
 				    <button class="jqx-rc-all" style='width:80px; height:30px'id="cmdDelete" onclick="deleteItem()"><spring:message code="db.del"/></button>
 				    <button class="jqx-rc-all" style='width:80px; height:30px'id="cmdExport" onclick="exportXls()"><spring:message code="db.export"/></button>
-				</div>
-				
+				</div>				
 	           	<div id="jqxDataTable1" style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 10px;'>
 				</div>
             </div>
-            
+             <div style='height:"100%";'>
+	            <div id='jqxWidget1' class='content_db' style=" font-size: 14px; font-family: Verdana; height: 30px; margin: 0px; padding: 2px 2px; border-radius: 2px;">
+				    <button class="jqx-rc-all" style='width:80px; height:30px'id="cmdEdit1" onclick="editItem()"><spring:message code="db.edit"/></button>
+				    <button class="jqx-rc-all" style='width:80px; height:30px'id="cmdExport1" onclick="exportXls()"><spring:message code="db.export"/></button>
+				</div>				             
             <div id="jqxDataTable2" style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 10px;'>
 			</div>
-			
+			</div>
+			 <div style='height:"100%";'>
+			 	<div id='jqxWidget2' class='content_db' style=" font-size: 14px; font-family: Verdana; height: 30px; margin: 0px; padding: 2px 2px; border-radius: 2px;">
+				    <button class="jqx-rc-all" style='width:80px; height:30px'id="cmdEdit2" onclick="editItem()"><spring:message code="db.edit"/></button>
+				    <button class="jqx-rc-all" style='width:80px; height:30px'id="cmdExport2" onclick="exportXls()"><spring:message code="db.export"/></button>
+				</div>
 			<div id="jqxDataTable3" style='font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 10px;'>
+			</div>
 			</div>
             
         </div> 
@@ -154,6 +163,7 @@
 	$(document).ready(function () {
 		xnk_nk_ngan_hang_lc();
 		initDanhmuc(); 
+		initControl();
 	/* 	initControl();
 		initDanhmuc(); */
 	});

@@ -108,7 +108,7 @@ function exportXls() {
 // Khởi tạo các điều khiển
 //-------------------------------------------------------------------------------
 function initControl() {
-/*	
+	
 	var height = $(window).height();
 	
 	$('#jqxTabs').jqxTabs({ width: '100%', height: height - 20, position: 'top',
@@ -116,7 +116,7 @@ function initControl() {
 		animationType: 'fade'
 	});
 	
-	$("#jqxDataTable1").jqxDataTable(
+	/*$("#jqxDataTable1").jqxDataTable(
 	{
 		theme: 'energyblue',
 		width: "100%",
@@ -148,7 +148,7 @@ function initControl() {
 		          { text: 'Trị giá NT', datafield: 'ghi_chu1' },
 		          { text: 'CV phụ trách', datafield: 'ghi_chu2' }
 		]
-	});
+	});*/
 	
 	//--------------------------------------------------------------
 	$("#jqxDataTable2").jqxDataTable(
@@ -225,7 +225,12 @@ function initControl() {
 	$("#cmdNew").jqxButton({ width: '80', height: '25'});
 	$("#cmdEdit").jqxButton({ width: '80', height: '25'});
 	$("#cmdDelete").jqxButton({ width: '80', height: '25'});
-	$("#cmdExport").jqxButton({ width: '80', height: '25'});*/
+	$("#cmdExport").jqxButton({ width: '80', height: '25'});
+
+	$("#cmdEdit1").jqxButton({ width: '80', height: '25'});
+	$("#cmdExport1").jqxButton({ width: '80', height: '25'});
+	$("#cmdEdit2").jqxButton({ width: '80', height: '25'});
+	$("#cmdExport2").jqxButton({ width: '80', height: '25'});
 }
 
 
@@ -325,7 +330,7 @@ function xnk_nk_ngan_hang_lc() {
 	});
 	
 	//--------------------------------------------------------------
-/*	$("#jqxDataTable2").jqxDataTable(
+	$("#jqxDataTable2").jqxDataTable(
 	{
 		theme: 'energyblue',
 		width: "100%",
@@ -358,10 +363,10 @@ function xnk_nk_ngan_hang_lc() {
 		          { text: 'Trị giá NT', datafield: 'tri_gia_ngoai_te' },
 		          { text: 'CV phụ trách', datafield: 'nhanvien_ma' }
 		]
-	});*/
+	});
 
 	//----------------------------------------------------------------------
-/*	
+	
 	$("#jqxDataTable3").jqxDataTable(
 	{
 		theme: 'energyblue',
@@ -392,7 +397,7 @@ function xnk_nk_ngan_hang_lc() {
 		          { text: 'Giá trị cũ', datafield: 'so_tien_ky_no' },
 		          { text: 'CV phụ trách', datafield: 'nhanvien_ma' }
 		]
-	});	*/
+	});	
 }
 
 
