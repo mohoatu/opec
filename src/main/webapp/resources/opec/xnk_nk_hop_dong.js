@@ -58,36 +58,36 @@ function editItem() {
 function deleteItem() {
 	
 	var rows_selected = $("#jqxDataTable").jqxDataTable('getSelection');
-	if(rows_selected.length <= 0)
+	if(rows_selected.length <= 0){
+		alert("Hãy chọn 1 dòng để sửa!");
 		return;
+	}
 
 	rowData = rows_selected[0];
 	
 	if (confirm('Bạn có chắc chắn muốn xóa?')) {
-		// Save it!
+		var url = './xnk_nk_hop_dong/delete';
+		$.ajax({
+		    url: url,
+		    type: 'POST',
+		    dataType: 'json',
+		    data: JSON.stringify(rowData), 
+		    contentType: 'application/json; charset=utf-8',
+		    mimeType: 'application/json',
+		    success: function(response) {
+
+		    	//alert('success');
+		    	$("#jqxDataTable").jqxDataTable('deleteRow', row_index);
+		    },
+		    error:function(response, status, er) {
+		        
+		    	alert("error: " + response + " status: " + status+" er:" + er);
+		    }
+	});
 	} else {
 	    // Do nothing!
 	    return;
 	}
-	
-	var url = './xnk_nk_hop_dong/delete';
-	$.ajax({
-	    url: url,
-	    type: 'POST',
-	    dataType: 'json',
-	    data: JSON.stringify(rowData), 
-	    contentType: 'application/json; charset=utf-8',
-	    mimeType: 'application/json',
-	    success: function(response) {
-
-	    	//alert('success');
-	    	$("#jqxDataTable").jqxDataTable('deleteRow', row_index);
-	    },
-	    error:function(response, status, er) {
-	        
-	    	alert("error: " + response + " status: " + status+" er:" + er);
-	    }
-	});
 	
 }
 
