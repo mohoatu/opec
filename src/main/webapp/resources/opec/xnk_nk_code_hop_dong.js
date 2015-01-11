@@ -35,8 +35,10 @@ function newItem() {
 function editItem() {
 	
 	var rows_selected = $("#jqxDataTable").jqxDataTable('getSelection');
-	if(rows_selected.length <= 0)
+	if(rows_selected.length <= 0){
+		alert("Hãy chọn 1 dòng để sửa!");
 		return;
+	}
 		
 	rowData = rows_selected[0];
 	
@@ -85,44 +87,45 @@ function deleteItem() {
 	
 	var rows_selected = $("#jqxDataTable").jqxDataTable('getSelection');
 	console.log(rows_selected);
-	if(rows_selected.length <= 0)
+	if(rows_selected.length <= 0){
+		alert("Hãy chọn 1 dòng để xóa!");
 		return;
-		
+	}
+
 	rowData = rows_selected[0];
 	
 	if (confirm('Bạn có chắc chắn muốn xóa?')) {
 		// Save it!
+		var url = './xnk_nk_code_hop_dong/delete';
+		$.ajax({
+		    url: url,
+		    type: 'POST',
+		    dataType: 'json',
+		    data: JSON.stringify(rowData), 
+		    contentType: 'application/json; charset=utf-8',
+		    mimeType: 'application/json',
+		    success: function(response) {
+
+		    	//alert('success');
+		    	$("#jqxDataTable").jqxDataTable('deleteRow', row_index);
+		    },
+		    error:function(response, status, er) {
+		        
+		    	alert("error: " + response + " status: " + status+" er:" + er);
+		    }
+		});
 	} else {
 	    // Do nothing!
 	    return;
 	}
-	
-	var url = './xnk_nk_code_hop_dong/delete';
-	$.ajax({
-	    url: url,
-	    type: 'POST',
-	    dataType: 'json',
-	    data: JSON.stringify(rowData), 
-	    contentType: 'application/json; charset=utf-8',
-	    mimeType: 'application/json',
-	    success: function(response) {
-
-	    	//alert('success');
-	    	$("#jqxDataTable").jqxDataTable('deleteRow', row_index);
-	    },
-	    error:function(response, status, er) {
-	        
-	    	alert("error: " + response + " status: " + status+" er:" + er);
-	    }
-	});
-	
+		
 }
 
 //-------------------------------------------------------------------------------
 //Xuất dữ liệu sang Excel
 //-------------------------------------------------------------------------------
 function exportXls() {
-	
+	$("#jqxDataTable").jqxDataTable({exportSettings:  { fileName: "CODE Hợp đồng nhập khẩu"}});
 	$("#jqxDataTable").jqxDataTable('exportData', 'xls');
 	
 }
@@ -148,88 +151,49 @@ function initControl() {
 			     var key = args.key;
 	});
 	
-	$("#cmdCancel").mousedown(function () {
+	$("#cmdCancel").click(function () {
+		//hide validation
+		$('#dialog').jqxValidator('hide');
 	    // close jqxWindow.
 	    $("#dialog").jqxWindow('close');
 	});
 	
-	$("#cmdSave").mousedown(function () {
-		
+	$("#cmdSave").click(function () {
 		$('#dialog').jqxValidator('validate');
-	    // close jqxWindow.
-	    $("#dialog").jqxWindow('close');
-	    
-	    // update edited row.
-	    var editRow = parseInt($("#dialog").attr('data-row'));
-	    
-	    if(editRow == -1) {
-	    	/*rowData.code_id = 0;*/
-	    	rowData = {"code_id":0};
-	    }
-	    
-	    rowData.code = $("#code").jqxInput('val');
-	    rowData.so_hop_dong = $("#so_hop_dong").jqxInput('val');
-	    rowData.hang_id = $("#ten_hang").jqxComboBox('val');
-	    rowData.nhom_hang = $("#nhom_hang").jqxInput('val');
-	    rowData.so_luong_hang_du_kien = $("#so_luong").jqxNumberInput('val');
-	    rowData.don_vi_tinh = $("#don_vi_tinh").jqxInput('val');
-	    rowData.don_gia_ngoai_te = $("#don_gia_ngoai_te").jqxNumberInput('val');
-	    rowData.ty_gia_ngoai_te = $("#ty_gia_ngoai_te").jqxNumberInput('val');
-	    rowData.tri_gia_ngoai_te = $("#tri_gia_ngoai_te").jqxNumberInput('val');
-	    rowData.tri_gia_vnd = $("#tri_gia_vnd").jqxNumberInput('val');
-	    rowData.dung_sai = $("#dung_sai").jqxInput('val');
-	    
-	    rowData.cangnhap_id = $("#cang_nhap").jqxComboBox('val');
-	    rowData.cangxuat_id = $("#cang_xuat").jqxComboBox('val');
-	    
-	    rowData.phuongthucgia_id = $("#phuong_thuc_gia").jqxComboBox('val');
-	    rowData.container_id = $("#loai_container").jqxComboBox('val');
-	    rowData.so_luong_container = $("#so_luong_container").jqxNumberInput('val');
-	    
-	    rowData.ngay_hen_giao_hang = $("#ngay_hen_giao_hang").jqxDateTimeInput('getDate');
-	    
-	    rowData.so_lan_thanh_toan = $("#so_lan_thanh_toan").jqxComboBox('val');
-	        
-	    var url = './xnk_nk_code_hop_dong/update';
-	    if(editRow == -1) {
-	    	url = './xnk_nk_code_hop_dong/insert';
-	    }
-	    
-	    $.ajax({
-		    url: url,
-		    type: 'POST',
-		    dataType: 'json',
-		    data: JSON.stringify(rowData), 
-		    contentType: 'application/json; charset=utf-8',
-		    mimeType: 'application/json',
-		    success: function(response) {
-				
-		    	if(editRow != -1) {
-			    	$("#jqxDataTable").jqxDataTable('updateRow', editRow, rowData);
-			    } else {
-			    	rowData.code_id = response;
-			    	$("#jqxDataTable").jqxDataTable('addRow', response, rowData); // Tham so thu 2 la null thi ID++
-			    }
-		    	
-		    },
-		    error:function(response, status, er) {
-		        
-		    	alert("Lỗi: " + response + " trạng thái: " + status + " er:" + er);
-
-		    }
-		});
 	});
 	
 	
 	$('#dialog').jqxValidator({
 	    rules: [
-	           //{ input: '#nhasanxuat_ten', message: 'Trường này phải nhập!', action: 'keyup, blur', rule: 'required' }
+	         /*{ input: '#phapnhan_ten', message: 'Trường này phải nhập!', action: 'keyup, blur', rule: 'required' },
+	           { input: '#so_hop_dong', message: 'Trường này phải nhập!', action: 'keyup, blur', rule: 'required' },
+	           { input: '#so_hop_dong', message: 'Hãy nhập số!', action: 'keyup, blur', rule: function (input, commit) { return !isNaN(input.val()) }},
+	           { input: '#nhacungcap_ten', message: 'Trường này phải nhập!', action: 'keyup, blur, select', rule: function(input){
+					return (input.val() === "") ? false : true;
+				} },
+	           { input: '#nhanvien_ten', message: 'Trường này phải nhập!', action: 'select', rule: function(input){
+					return (input.val() === "") ? false : true;
+				} },
+	           { input: '#tiente_ten', message: 'Trường này phải nhập!', action: 'select', rule: function(input){
+					return (input.val() === "") ? false : true;
+				} },
+	           { input: '#ngay_ky_hop_dong', message: 'Trường này phải nhập!', action: 'select', rule: function(input){
+					return (input.val() === "") ? false : true;
+				} },
+				{ input: '#ngay_giao_hop_dong', message: 'Trường này phải nhập!', action: 'select', rule: function(input){
+					return (input.val() === "") ? false : true;
+				} }
+				*/
 		]
 	});
 	
+	$('#dialog').on('validationSuccess', function (event) {
+   		add_update_code_hd();
+	    console.log("db success");
+	});
+	
 	$("#dialog").on('close', function () {
-	    // enable jqxDataTable.
-	    $("#jqxDataTable").jqxDataTable({ disabled: false });
+		resetInputWhenClose();
 	});
 	
 	$("#dialog").jqxWindow({
@@ -237,7 +201,7 @@ function initControl() {
 		showCollapseButton: false, 
         maxHeight: 900, maxWidth: 1400, 
         //minHeight: 200, minWidth: 300, 
-        height: 800, width: 1000,
+        height: 700, width: 1000,
         isModal : true,
 	    resizable: true,
 	    animationType: 'combined', // none, fade, slide, combined
@@ -510,4 +474,74 @@ function controlResize() {
 	//$("#dialog").jqxWindow({height: height - 10, width: 1100});
 	
 	
+}
+
+function add_update_code_hd(){
+    // update edited row.
+    var editRow = parseInt($("#dialog").attr('data-row'));
+    
+    if(editRow == -1) {
+    	rowData = {};
+    	rowData = {"code_id":0};
+    }
+    
+    rowData.code = $("#code").jqxInput('val');
+    rowData.so_hop_dong = $("#so_hop_dong").jqxInput('val');
+    rowData.hang_id = $("#ten_hang").jqxComboBox('val');
+    rowData.nhom_hang = $("#nhom_hang").jqxInput('val');
+    rowData.so_luong_hang_du_kien = $("#so_luong").jqxNumberInput('val');
+    rowData.don_vi_tinh = $("#don_vi_tinh").jqxInput('val');
+    rowData.don_gia_ngoai_te = $("#don_gia_ngoai_te").jqxNumberInput('val');
+    rowData.ty_gia_ngoai_te = $("#ty_gia_ngoai_te").jqxNumberInput('val');
+    rowData.tri_gia_ngoai_te = $("#tri_gia_ngoai_te").jqxNumberInput('val');
+    rowData.tri_gia_vnd = $("#tri_gia_vnd").jqxNumberInput('val');
+    rowData.dung_sai = $("#dung_sai").jqxInput('val');
+    
+    rowData.cangnhap_id = $("#cang_nhap").jqxComboBox('val');
+    rowData.cangxuat_id = $("#cang_xuat").jqxComboBox('val');
+    
+    rowData.phuongthucgia_id = $("#phuong_thuc_gia").jqxComboBox('val');
+    rowData.container_id = $("#loai_container").jqxComboBox('val');
+    rowData.so_luong_container = $("#so_luong_container").jqxNumberInput('val');
+    
+    rowData.ngay_hen_giao_hang = $("#ngay_hen_giao_hang").jqxDateTimeInput('getDate');
+    
+    rowData.so_lan_thanh_toan = $("#so_lan_thanh_toan").jqxComboBox('val');
+        
+    var url = './xnk_nk_code_hop_dong/update';
+    if(editRow == -1) {
+    	url = './xnk_nk_code_hop_dong/insert';
+    }
+    
+    // close jqxWindow.
+    $("#dialog").jqxWindow('close');
+
+    $.ajax({
+	    url: url,
+	    type: 'POST',
+	    dataType: 'json',
+	    data: JSON.stringify(rowData), 
+	    contentType: 'application/json; charset=utf-8',
+	    mimeType: 'application/json',
+	    success: function(response) {
+			
+	    	if(editRow != -1) {
+		    	$("#jqxDataTable").jqxDataTable('updateRow', editRow, rowData);
+		    } else {
+		    	rowData.code_id = response;
+		    	$("#jqxDataTable").jqxDataTable('addRow', response, rowData); // Tham so thu 2 la null thi ID++
+		    }
+	    	
+	    },
+	    error:function(response, status, er) {
+	        
+	    	alert("Lỗi: " + response + " trạng thái: " + status + " er:" + er);
+
+	    }
+	});
+}
+
+function resetInputWhenClose () {
+	// enable jqxDataTable.
+    $("#jqxDataTable").jqxDataTable({ disabled: false });
 }
