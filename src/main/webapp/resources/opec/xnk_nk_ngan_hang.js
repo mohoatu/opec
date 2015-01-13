@@ -31,9 +31,9 @@ function newItem() {
 //-------------------------------------------------------------------------------
 // Sửa bản ghi
 //-------------------------------------------------------------------------------
-/*function editItem() {
+function editItem() {
 	
-	var rows_selected = $("#jqxDataTable").jqxDataTable('getSelection');
+	var rows_selected = $("#jqxDataTable1").jqxDataTable('getSelection');
 	if(rows_selected.length <= 0)
 		return;
 		
@@ -42,7 +42,7 @@ function newItem() {
 	$("#dialog").jqxWindow('setTitle', "Cập nhật thông tin ngân hàng");
     $("#dialog").jqxWindow('open');
     $("#dialog").attr('data-row', row_index);
-    $("#jqxDataTable").jqxDataTable({ disabled: true });
+    $("#jqxDataTable1").jqxDataTable({ disabled: true });
     
     $("#so_hop_dong").jqxInput('val', rowData.so_hop_dong);
     $("#nhacungcap_ten").jqxComboBox('val', rowData.nhacungcap_id);
@@ -54,7 +54,7 @@ function newItem() {
     $("#ngay_ky_hop_dong").jqxDateTimeInput('setDate', rowData.ngay_ky_hop_dong);
     $("#ngay_giao_hop_dong").jqxDateTimeInput('setDate', rowData.ngay_giao_hop_dong);
     $("#ngay_het_hieu_luc_hop_dong").jqxDateTimeInput('setDate', rowData.ngay_het_hieu_luc_hop_dong);
-}*/
+}
 
 //-------------------------------------------------------------------------------
 // Xóa bản ghi
