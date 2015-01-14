@@ -64,7 +64,7 @@ public class xnk_nk_NganHangController {
 			final HttpServletRequest request,
 			final HttpServletResponse response)
 	{
-		xnk_Nk_Ngan_HangService.remove(Integer.parseInt(fields.get("nhasanxuat_id").toString()));
+		xnkNkNganHangRepository.delete(Integer.parseInt(fields.get("thanhtoan_id").toString()));
 		
 		return 1;
 	}

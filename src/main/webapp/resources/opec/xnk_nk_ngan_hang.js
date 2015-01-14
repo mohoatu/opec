@@ -66,7 +66,7 @@ function deleteItem() {
 	    return;
 	}
 	
-	var url = './data/xnk_nk_hop_dong/delete';
+	var url = '/xnk_nk_ngan_hang_lc/delete';
 	$.ajax({
 	    url: url,
 	    type: 'POST',
@@ -404,9 +404,17 @@ function initDanhmuc() {
 		enableAbsoluteSelection: true});
 	$("#ngay_chung_tu_gui_ngan_hang").jqxDateTimeInput({ formatString: 'dd/MM/yyyy', width: '100', height: '25', allowKeyboardDelete: true });
 	$("#ngay_han_muc_vay").jqxDateTimeInput({ formatString: 'dd/MM/yyyy', width: '100', height: '25', allowKeyboardDelete: true });
+	$("#ngay_han_mo").jqxDateTimeInput({ formatString: 'dd/MM/yyyy', 
+		width: '100', height: '25', allowKeyboardDelete: true,
+		enableAbsoluteSelection: true});
+	$("#ngay_mo_lc").jqxDateTimeInput({ formatString: 'dd/MM/yyyy', 
+		width: '100', height: '25', allowKeyboardDelete: true,
+		enableAbsoluteSelection: true});
 	
 	$("#ghi_chu").jqxInput({ placeHolder: "Ghi chú", height: 25, width: '100%'});
-	
+	$("#phuongthuctt_id").jqxComboBox({
+        source: dmPhuongThucThanhToan(), displayMember: 'phuongthuctt_ma', valueMember: 'phuongthuctt_id', width: '50', height: '25'
+    });
 	$("#save").jqxButton({ width: '100', height: '30'});
 	$("#cancel").jqxButton({ width: '100', height: '30'});
 	$("#cmdNew").jqxButton({ width: '100', height: '30'});
