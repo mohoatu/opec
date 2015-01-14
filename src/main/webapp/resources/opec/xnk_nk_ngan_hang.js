@@ -44,16 +44,8 @@ function editItem() {
     $("#dialog").attr('data-row', row_index);
     $("#jqxDataTable1").jqxDataTable({ disabled: true });
     
-    $("#so_hop_dong").jqxInput('val', rowData.so_hop_dong);
-    $("#nhacungcap_ten").jqxComboBox('val', rowData.nhacungcap_id);
-    $("#phapnhan_ten").jqxComboBox('val', rowData.phapnhan_id);
-    $("#nhanvien_ten").jqxComboBox('val', rowData.nhanvien_id);
-    $("#mucdoyc_ten").jqxComboBox('val', rowData.mucdoyc_id);
     $("#ghi_chu").jqxInput('val', rowData.ghi_chu);
     
-    $("#ngay_ky_hop_dong").jqxDateTimeInput('setDate', rowData.ngay_ky_hop_dong);
-    $("#ngay_giao_hop_dong").jqxDateTimeInput('setDate', rowData.ngay_giao_hop_dong);
-    $("#ngay_het_hieu_luc_hop_dong").jqxDateTimeInput('setDate', rowData.ngay_het_hieu_luc_hop_dong);
 }
 
 //-------------------------------------------------------------------------------
@@ -406,37 +398,12 @@ function xnk_nk_ngan_hang_lc() {
 //-------------------------------------------------------------------------------
 function initDanhmuc() {
 
-	// Combo danh mục pháp nhân
-	$("#phapnhan_ten").jqxComboBox({ source: dmPhapNhan(), displayMember: "phapnhan_ten", valueMember: "phapnhan_id", width: '500', height: '25'});
-	$("#phapnhan_ten").jqxComboBox({ autoComplete: true });
-	$("#phapnhan_ten").jqxComboBox({ searchMode: 'containsignorecase' });
 	
-	$("#so_hop_dong").jqxInput({ placeHolder: "Nhập số hợp đồng", height: 25, width: 100});
-	
-	// Combo danh mục nhà cung cấp
-	$("#nhacungcap_ten").jqxComboBox({ source: dmNhaCungCap(), displayMember: "nhacungcap_ten", valueMember: "nhacungcap_id", width: '100%', height: '25'});
-	$("#nhacungcap_ten").jqxComboBox({ autoComplete: true });
-	$("#nhacungcap_ten").jqxComboBox({ searchMode: 'containsignorecase' });
-	
-	// Combo danh mục nhân viên
-	$("#nhanvien_ten").jqxComboBox({ source: dmNhanVien(), displayMember: "nhanvien_ten", valueMember: "nhanvien_id", width: '200', height: '25'});
-	$("#nhanvien_ten").jqxComboBox({ autoComplete: true });
-	$("#nhanvien_ten").jqxComboBox({ searchMode: 'containsignorecase' });
-	
-	// Combo danh mục pháp nhân
-	$("#mucdoyc_ten").jqxComboBox({ source: dmMucDoYeuCau(), displayMember: "mucdoyc_ten", valueMember: "mucdoyc_id", width: '100', height: '25'});
-	$("#mucdoyc_ten").jqxComboBox({ autoComplete: true });
-	$("#mucdoyc_ten").jqxComboBox({ searchMode: 'containsignorecase' });
-	
-	$("#tiente_ten").jqxComboBox({ source: dmTienTe(), displayMember: "tiente_ma", valueMember: "tiente_id", width: '100', height: '25'});
-	$("#tiente_ten").jqxComboBox({ autoComplete: true });
-	$("#tiente_ten").jqxComboBox({ searchMode: 'containsignorecase' });
-	
-	$("#ngay_ky_hop_dong").jqxDateTimeInput({ formatString: 'dd/MM/yyyy', 
+	$("#ngay_thanh_toan_thuc_te").jqxDateTimeInput({ formatString: 'dd/MM/yyyy', 
 		width: '100', height: '25', allowKeyboardDelete: true,
 		enableAbsoluteSelection: true});
-	$("#ngay_giao_hop_dong").jqxDateTimeInput({ formatString: 'dd/MM/yyyy', width: '100', height: '25', allowKeyboardDelete: true });
-	$("#ngay_het_hieu_luc_hop_dong").jqxDateTimeInput({ formatString: 'dd/MM/yyyy', width: '100', height: '25', allowKeyboardDelete: true });
+	$("#ngay_chung_tu_gui_ngan_hang").jqxDateTimeInput({ formatString: 'dd/MM/yyyy', width: '100', height: '25', allowKeyboardDelete: true });
+	$("#ngay_han_muc_vay").jqxDateTimeInput({ formatString: 'dd/MM/yyyy', width: '100', height: '25', allowKeyboardDelete: true });
 	
 	$("#ghi_chu").jqxInput({ placeHolder: "Ghi chú", height: 25, width: '100%'});
 	
@@ -466,15 +433,32 @@ function initDanhmuc() {
 	    var editRow = parseInt($("#dialog").attr('data-row'));
 	    
 	    if(editRow == -1) {
-	    	rowData = {"hopdong_id":0,
-	    			"so_hop_dong":""
+	    	rowData = {"thanhtoan_id":0,
+	    			"thanhtoan_id":null
 	    			};
 	    }   
+	    rowData.thanhtoan_id = $("#thanhtoan_id").val();
+	    rowData.code_id = $("#code_id").val();
+	    rowData.thanhtoan_thu_tu = $("#thanhtoan_thu_tu").val();
+	    rowData.phuongthuctt_id  = $("#phuongthuctt_id").val();
+	    rowData.ngay_han_mo  = $("#ngay_han_mo").val();
+	    rowData.so_ngay_tra_cham  = $("#so_ngay_tra_cham").val();
+	    rowData.nganhang_id  = $("#nganhang_id").val();
+	    rowData.ngay_han_muc_vay  = $("#ngay_han_muc_vay").val();
+	    rowData.lai_suat_vay_no  = $("#lai_suat_vay_no").val();
+	    rowData.ngay_chung_tu_gui_ngan_hang  = $("#ngay_chung_tu_gui_ngan_hang").val();
+	    rowData.so_luong_hang_thuc_te  = $("#so_luong_hang_thuc_te").val();
+	    rowData.tri_gia_thuc_te  = $("#tri_gia_thuc_te").val();
+	    rowData.so_tien_tu_thanh_toan  = $("#so_tien_tu_thanh_toan").val();
+	    rowData.so_tien_ky_no  = $("#so_tien_ky_no").val();
+	    rowData.ngay_thanh_toan_thuc_te  = $("#ngay_thanh_toan_thuc_te").val();
+	    rowData.so_tien_thanh_toan_thuc_te  = $("#so_tien_thanh_toan_thuc_te").val();
 	    rowData.ghi_chu = $("#ghi_chu").val();
-	    var url = './xnk_nk_ngan_hang_lc/update';
-	    if(editRow == -1) {
-	    	url = './xnk_nk_ngan_hang_lc/insert';
-	    }	    
+	    rowData.trangthai_thanh_toan_id  = $("#trangthai_thanh_toan_id").val();
+	    rowData.ngay_mo_lc  = $("#ngay_mo_lc").val();
+	    rowData.so_lc  = $("#so_lc").val();
+
+	    var url = './xnk_nk_ngan_hang_lc/save';    
 	    $.ajax({
 		    url: url,
 		    type: 'POST',

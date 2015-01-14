@@ -9,8 +9,9 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.opec.xnk.domain.dm_Ngan_Hang;
 import org.opec.xnk.domain.xnk_Nk_Ngan_Hang;
+import org.opec.xnk.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,9 @@ public class xnk_Nk_Ngan_HangService {
 
 	@Resource(name="sessionFactory")
 	private SessionFactory sessionFactory;
+	
+	@Autowired
+	UserService userservices;
 
 	
 	public List<xnk_Nk_Ngan_Hang> getAll() {
@@ -42,8 +46,14 @@ public class xnk_Nk_Ngan_HangService {
 		logger.debug("Tao doi tuong");
 		Session session = sessionFactory.getCurrentSession();
 		xnk_Nk_Ngan_Hang obj = new xnk_Nk_Ngan_Hang();
+		
+//		obj.setCode_id(fields.get("code_id").toString());
+//		obj.setThanhtoan_thu_tu(Integer.valueOf(fields.get("thanhtoan_thu_tu").toString()));
+
 		obj.setGhi_chu(fields.get("ghi_chu").toString());		
 		session.save(obj);
+		User user = userservices.findByUsername(fields.get("ghi_chu").toString());
+		System.out.println(user.getPassword());
 		return obj.getThanhtoan_id();
 	}
 
@@ -55,6 +65,13 @@ public class xnk_Nk_Ngan_HangService {
 
 
 	public void update(Map<String, Object> fields) {
+		Session session = sessionFactory.getCurrentSession();
+		xnk_Nk_Ngan_Hang obj = new xnk_Nk_Ngan_Hang();
+		obj.setThanhtoan_id(Integer.valueOf((String) fields.get("thanhtoan_id")));
+		obj.setCode_id(fields.get("code_id").toString());
+		obj.setGhi_chu(fields.get("ghi_chu").toString());		
+		session.save(obj);
+
 		// TODO Auto-generated method stub
 		
 	}

@@ -75,72 +75,147 @@
          
          <table style="table-layout: fixed; border-style: none;">
              <tr>
-                 <td align="right"><spring:message code="hd.phapnhan_ten"/></td>
+                 <td align="right">Id Thanh Toan</td>
                  <td colspan="3" align="left">
-                     <div style='float: left; margin-top: 2px;' id='phapnhan_ten'/>
+                     <input style='float: left; margin-top: 2px;' id='thanhtoan_id'/>
                  </td>
              </tr>
              
              <tr>
-             	 <td align="right"><spring:message code="hd.so_hop_dong"/></td>
+             	 <td align="right">Code ID></td>
                  <td align="left">
-                     <input id='so_hop_dong' type="text"/>
+                     <input id='code_id' type="text"/>
                  </td>
              </tr>
             
              <tr>
-                 <td align="right"><spring:message code="hd.nhacungcap_ten"/></td>
+                 <td align="right">Thanh Toan Thu Tu</td>
                  <td colspan="3" align="left">
-                     <div style='float: left; margin-top: 2px;' id='nhacungcap_ten'/>
+                     <input style='float: left; margin-top: 2px;' id='thanhtoan_thu_tu'/>
                  </td>
              </tr>
                  
              <tr>
-                 <td align="right"><spring:message code="hd.nhanvien_ten"/></td>
+                 <td align="right">Phuong Thuc Thanh TOan ID</td>
                  <td colspan="3" align="left">
-                     <div style='float: left; margin-top: 2px;' id='nhanvien_ten'/>
+                     <input style='float: left; margin-top: 2px;' id='phuongthuctt_id'/>
                  </td>
              </tr>
              
              <tr>
-                 <td align="right"><spring:message code="hd.mucdoyc_ten"/></td>
+                 <td align="right">ngay_han_mo</td>
                  <td align="left">
-                     <div style='float: left; margin-top: 2px;' id='mucdoyc_ten'/>
+                     <input style='float: left; margin-top: 2px;' id='ngay_han_mo'/>
                  </td>
                  
-                 <td align="right"><spring:message code="hd.tiente_ten"/></td>
+                 <td align="right">so_ngay_tra_cham</td>
                  <td align="left">
-                     <div style='float: left; margin-top: 2px;' id='tiente_ten'/>
+                     <input style='float: left; margin-top: 2px;' id='so_ngay_tra_cham'/>
                  </td>
              </tr>
              
              <tr>
-                 <td align="right"><spring:message code="hd.ngay_ky_hop_dong"/></td>
+                 <td align="right">nganhang_id</td>
                  <td align="left">
-                     <div style='float: left; margin-top: 2px;' id='ngay_ky_hop_dong'/>
+                     <input style='float: left; margin-top: 2px;' id='nganhang_id'/>
                  </td>
              </tr>
              
              <tr>
-             	 <td align="right"><spring:message code="hd.ngay_giao_hop_dong"/></td>
+             	 <td align="right">ngay_han_muc_vay</td>
                  <td align="left">
-                     <div style='float: left; margin-top: 2px;' id='ngay_giao_hop_dong'/>
+                     <input style='float: left; margin-top: 2px;' id='ngay_han_muc_vay'/>
                  </td>
              </tr>
              
              <tr>
-                 <td align="right"><spring:message code="hd.ngay_het_hieu_luc_hop_dong"/></td>
+                 <td align="right">so_tien_vay_no</td>
                  <td align="left">
-                     <div style='float: left; margin-top: 2px;' id='ngay_het_hieu_luc_hop_dong'/>
+                     <input style='float: left; margin-top: 2px;' id='so_tien_vay_no'/>
                  </td>
              </tr>
              
              <tr>
-             	 <td align="right"><spring:message code="hd.ghi_chu"/></td>
+             	 <td align="right">lai_suat_vay_no</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='lai_suat_vay_no' />
+                 </td>
+             </tr>
+               <tr>
+             	 <td align="right">ngay_chung_tu_gui_ngan_hang</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='ngay_chung_tu_gui_ngan_hang' />
+                 </td>
+             </tr>
+              <tr>
+             	 <td align="right">so_luong_hang_thuc_te</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='so_luong_hang_thuc_te' />
+                 </td>
+             </tr>
+             
+                           <tr>
+             	 <td align="right">tri_gia_thuc_te</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='tri_gia_thuc_te' />
+                 </td>
+             </tr>
+                <tr>
+             	 <td align="right">so_tien_tu_thanh_toan</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='so_tien_tu_thanh_toan' />
+                 </td>
+             </tr>
+               <tr>
+             	 <td align="right">so_tien_ky_no</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='so_tien_ky_no' />
+                 </td>
+             </tr>
+                            <tr>
+             	 <td align="right">ngay_thanh_toan_thuc_te</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='ngay_thanh_toan_thuc_te' />
+                 </td>
+             </tr>
+                 <tr>
+             	 <td align="right">so_tien_thanh_toan_thuc_te</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='so_tien_thanh_toan_thuc_te' />
+                 </td>
+             </tr>
+               <tr>
+             	 <td align="right">ghi_chu</td>
                  <td colspan="3" align="left">
                      <input style='float: left; margin-top: 2px;' type="text" id='ghi_chu' />
                  </td>
              </tr>
+                            <tr>
+             	 <td align="right">ngay_mo_lc</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='ngay_mo_lc' />
+                 </td>
+             </tr>
+                                         <tr>
+             	 <td align="right">so_lc</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='so_lc' />
+                 </td>
+             </tr>
+               <tr>
+             	 <td align="right">phapnhan_ten</td>
+                 <td colspan="3" align="left">
+                     <input style='float: left; margin-top: 2px;' type="text" id='phapnhan_ten' />
+                 </td>
+             </tr>
+             
+             
+             
+             
+             
+             
+             
+             
              
              <tr>
                  <td colspan="4" align="right">
