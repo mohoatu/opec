@@ -25,7 +25,7 @@
 
 <body>
 
-<div id='jqxWidget' class="jqx-rc-all" align="right" style='margin: 5px;'>
+<div id='jqxWidget' class="jqx-rc-all" align="left" style='margin: 5px;'>
     <button class="jqx-rc-all" style='width:80px; height:30px' id="cmdNew" onclick="newItem()"><spring:message code="db.new"/></button>
     <button class="jqx-rc-all" style='width:80px; height:30px'id="cmdEdit" onclick="editItem()"><spring:message code="db.edit"/></button>
     <button class="jqx-rc-all" style='width:80px; height:30px'id="cmdDelete" onclick="deleteItem()"><spring:message code="db.del"/></button>

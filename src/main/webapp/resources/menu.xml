@@ -34,7 +34,7 @@
 		<item>
 			<id>0102</id>
 			<parentid>01</parentid>
-			<name>Ngân hàng</name>
+			<name>Thanh Toán Code</name>
 			<func></func>
 			<subMenuWidth>200px</subMenuWidth>
 		</item>
@@ -42,7 +42,7 @@
 			<item>
 				<id>010201</id>
 				<parentid>0102</parentid>
-				<name>Phiếu mở LC</name>
+				<name>Thanh Toán Code</name>
 				<func>xnk_nk_ngan_hang_lc</func>
 			</item>
 			
@@ -56,7 +56,7 @@
 			<item>
 				<id>010203</id>
 				<parentid>0102</parentid>
-				<name>Thông tin thanh toán</name>
+				<name>Giá Trị Và Số Lượng Đơn Hàng</name>
 				<func>xnk_nk_ngan_hang_thanh_toan</func>
 			</item>
 	

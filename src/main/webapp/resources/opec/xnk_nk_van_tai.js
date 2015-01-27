@@ -116,20 +116,18 @@ function xnk_nk_van_tai() {
 	$("#jqxDataTable1").jqxDataTable(
 	{
 		theme: 'energyblue',
-		width: "100%",
-		height: height - 111,
+        width: 950,
+        height: 100,
 		source: dataCodeNkHopDong(),
-		pageable: true,
 		pagerMode: 'default',
 		altRows: false,
 		columnsResize: true,
 		columnsReorder: true,
-		columnsheight: 50,
 		filterable: false,
 		filtermode: 'simple',
 		sortable: true,
 		localization: gridLocalization(),
-		pageSize: 20,
+		pageSize: 5,
 		columns: [
 		          { text: 'Code', datafield: 'code_id', width: 60 },
 		          { text: 'Cảng nhập', datafield: 'cangnhap_ten' },
