@@ -16,6 +16,7 @@
     <script type="text/javascript" src="./resources/jqwidgets/jqx-all.js"></script>
     <script type="text/javascript" src="./resources/jqwidgets/generatedata.js"></script>
     <script type="text/javascript" src="./resources/opec/dm_common.js"></script>
+    <script type="text/javascript" src="./resources/opec/thongtinthanhtoan.js"></script>    
     <script type="text/javascript">
         $(document).ready(function() {
             //Creating wizard module
@@ -33,22 +34,6 @@
                     $('.backButton').click(function() {
                         wizard.validate(true);
                         $('#jqxTabs').jqxTabs('previous');
-                    });
-                    $('#products').on('change', function(event) {
-                        wizard.validate(true);
-                        var selectedItems = $('#products').jqxListBox('selectedIndexes'),
-                            count = selectedItems.length;
-                        $('#orderContainer').children().remove();
-                        while (count) {
-                            count--;
-                            if (typeof selectedItems[count] !== 'undefined' &&
-                                selectedItems[count] !== -1) {
-                                $('#orderContainer').prepend('<div style="width: 190px; height: 20px;">' + wizard.config.source[selectedItems[count]].html + '</div>');
-                            }
-                        }
-                    });
-                    $('#products').on('unselect', function(event) {
-                        wizard.validate(true);
                     });
                 };
 
@@ -103,12 +88,6 @@
                         $('#backButtonReview').jqxButton({
                             width: 50
                         });
-                        $("#products").jqxListBox({
-                            source: this.config.source,
-                            width: '490px',
-                            height: '130px',
-                            multiple: true
-                        });
                         _addHandlers();
                         this.validate();
                         this.showHint('Validation hints.');
@@ -159,14 +138,7 @@
 
                     //Validating the second tab
                     secondTab: function() {
-                        var products = $('#products').jqxListBox('selectedIndex');
-                        if (!_isItemSelected($('#products').jqxListBox('selectedIndexes'))) {
-                            this.showHint('You have to select at least one item.', '#hintBasket');
-                            return false;
-                        } else {
-                            this.showHint('You can continue.', '#hintBasket');
-                        }
-                        return true;
+                        return false;
                     },
                     thirdTab: function() {
                         return false;
@@ -404,6 +376,8 @@
                 var row = $("#jqGridCodeNK").jqxGrid('getrowdata', args.rowindex);
                 if (row != undefined) {
                     $("#jqxdatetimeinput").val(row['ngay_hen_giao_hang']);
+                    $("#inputHopDong").val(row['so_hop_dong']);
+                    $("#inputNhapKhau").val(row['code']);                  
                     var dropDownContent = '<div style="position: relative; margin-left: 3px; margin-top: 5px;">' + row['code_id'] + '-' + row['nhom_hang'] + '</div>';
                     $("#jqxdropdownbuttonNK").jqxDropDownButton('setContent', dropDownContent);
                 }
@@ -511,7 +485,7 @@
                 width: 200
             });
             $("#nextVanChuyenButtonInfo").jqxLinkButton({ width: '200', height: '25'});
-
+            getDataThongTinThanhToan();
                        
         });
     </script>
@@ -534,7 +508,7 @@
             float: left;
         }
         #hintSection {
-            float: left;
+            float: right;
             margin-top: 30px;
             margin-right: 20px;
             padding: 5px;
@@ -569,8 +543,8 @@
             position: relative;
         }
         .nextButton {
-            float: right;
-            margin-left: 0px;
+            float: left;
+            margin-right: 5px;
         }
         .backButton {
             float: left;
@@ -611,6 +585,8 @@
             </ul>
             <div class="section">
                 <div id="form">
+                <div class="hint" id="hintSection">
+                </div>                            
                     Code Hợp Đồng:
                     <div id="jqxdropdownbutton" class="inputContainer">
                         <div style="border-color: transparent;" id="jqGridCodeNH" class="formInput">
@@ -632,15 +608,52 @@
                     <div style="margin-top: 10px;">
                         <input type="button" value="Thêm Mới Hợp Đồng" id="btnNewHD"/>
                         <input type="button" value="Thêm Mới Code Nhập Khẩu" id="btnNewCodeNK"/>                    
-                        <input type="button" value="Thông Tin Thanh Toán" id="nextButtonInfo" />
+                        <input type="button" value="Thông Tin Thanh Toán" class="nextButton" id="nextButtonInfo" />
                 		<a href="./xnk_nk_van_tai" id='nextVanChuyenButtonInfo'>Thông Tin Vận Chuyển</a>                                            
                     </div>
                 </div>
 
             </div>
             <div class="section">
-                <div id="products">
+                                 
+                     <br/>
+                    <div style="margin-top: 10px;">
+                     Code Hợp Đồng: <input type="text" id="inputHopDong" disabled="disabled"/>
+                     </div>
+                                          <br/>                  
+                     
+                     <div>
+                    Code Nhập Khẩu:<input type="text" id="inputNhapKhau" disabled="disabled"/>                                           
+                    </div>            
+            Phương Thức Thanh Toán CODE:
+                                 <br/>
+                     <br/>
+            
+		        <div id="jqxgrid">
+		        </div> 
+        <div id="jqxwindow1">
+            <div>
+                Update Thông Tin Ngân Hàng</div>
+            <div style="overflow: hidden;">
+                <div>
+                    Ngân Hàng:</div>
+                <div style='margin-top:5px;'>
+                    <input id='inputField' type="text" class="jqx-input" style="width: 200px; height: 23px;" />
                 </div>
+                <div>
+                    <input type="button" style='margin-top: 15px; margin-left: 50px; float: left;' value="Update" id="findButton" />
+                    <input type="button" style='margin-left: 5px; margin-top: 15px; float: left;' value="Cancel" id="clearButton" />
+                </div>
+            </div>
+        </div>	        
+		         
+		                          <br/>
+                     <br/>        
+            Lịch Sử Thanh Toán:
+                                 <br/>
+                     <br/>
+            
+		        <div id="jqxgrid2"></div>		        
                 <div class="hint" id="hintBasket">
                 </div>
                 <div id="basketButtonsWrapper">
